@@ -1,5 +1,5 @@
 ﻿// We use "let" to define functions, too.
-let square x = x * x
+let square (x:float) = x * x  //:float will force type to float
 // The parameters to the function follow its name, with no commas.
 // The = sign starts the function body.
 // There is no "return" in F#; the last expression in the function body is the return value.
@@ -42,13 +42,13 @@ let toCelcius tempF = (tempF - 32.0) * 5.0 / 9.0
 
 // Challenges:
 // Write a function that concatenates a string with itself.
-
+let concatenate (s:string) = s+s
 
 
 
 
 // Write a function that finds the harmonic mean of two floating-point numbers.
-
+let harm a b = 1.0 / ( (1.0/a) + (1.0/b) ) 
 
 
 
@@ -56,14 +56,18 @@ let toCelcius tempF = (tempF - 32.0) * 5.0 / 9.0
 // Write a function that repeats a given string N times, with commas separating each
 // copy of the string.
 
-
-
-
+let stringRepeat s n = 
+    let mutable count = 1
+    let mutable ret = s
+    while count<n do
+        ret <- ret + "," + s
+        count <- count + 1
+    ret
 
 
 [<EntryPoint>]
 let main argv = 
-    printfn "5 squared is %d" (square 5)
+    printfn "5 squared is %f" (square 5.0)
     
     // "Other hints" about the type of a parameter:
     // The next line only works if the previous line is commented out.
@@ -79,5 +83,4 @@ let main argv =
 
     printfn "90 degrees F = %0.1f degrees C" (toCelcius 90.0)    
 
-    
     0 // return an integer exit code

@@ -23,9 +23,12 @@ let list2 = "c" :: list1 // :: is called "cons" ; create a new list by placing a
 
 let list3 = list1 @ list2 // @ is "concat": concatenate/append two lists
 
+//how to add at the end?
+let list4 = list1 @ ["c"] //this will make c a list, which will allow list 1 be concatenated with c
+
 let printList li =
     // Lists do have .[] indexing like arrays, but lists are secretly LINKED LISTS...
-    // and what is the O(_) runtime complexity of indexing a linked list?
+    // and what is the O(_) runtime complexity of indexing a linked list? = o(n).
 
 
 
@@ -77,8 +80,11 @@ let main argv =
 
 
     // Lists can be constucted over subranges with [ .. ] syntax.
-    let lotsOfNumbers = [ 1 .. 40000000 ]
-    printfn "The largest of 1 .. 40000000 is %d" (List.max lotsOfNumbers)
+    //let lotsOfNumbers = [ 1 .. 40000000 ]
+
+    //[1..5..40000000] mid number will be increment, count by five.
+
+    //printfn "The largest of 1 .. 40000000 is %d" (List.max lotsOfNumbers)
 
     // Run this program and monitor its MEMORY CONSUMPTION -- WOW!!!
     // Where is that coming from?
@@ -88,7 +94,7 @@ let main argv =
 
 
     // The Seq module has similar methods for working with sequences.
-    // printfn "The largest of 1 .. 1000000000000L is %d" (Seq.max longSeq)
+    printfn "The largest of 1 .. 1000000000000L is %d" (Seq.max longSeq)
     // So what's the difference?
 
 
