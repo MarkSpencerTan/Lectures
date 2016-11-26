@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/quadratic-formula.iml" filepath="$PROJECT_DIR$/quadratic-formula.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Clojure.iml" filepath="$PROJECT_DIR$/.idea/Clojure.iml" />
     </modules>
   </component>
 </project>

@@ -27,7 +27,7 @@
   (let [values (repeatedly mylazy)]
     (println (first values))  ; first value gets generated
     (println (take 1 values)) ; first value already generated, simply returned.
-        (println (take 2 values)) ; one is already generated, so one more is needed.
+    (println (take 2 values)) ; one is already generated, so one more is needed.
     (println "")
-    (println (take 5 values))
-  ))
+    (println (take 5 values))))
+
