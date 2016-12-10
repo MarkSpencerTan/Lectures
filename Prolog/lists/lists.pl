@@ -14,7 +14,6 @@ mylength([_|T], L) :- length(T, S), L is S + 1.
 sum([], 0).
 sum([H|T], S) :- sum(T, D), S is D + H.
 
-
 % mylength and sum are not tail-recursive, so let's try making them so.
 mylength2([H|T], L) :- mylength2([H|T], L, 0). % the last param will accumulate.
 mylength2([], L, L). % base case of recursion.
@@ -50,5 +49,25 @@ quicksort([], []).
 partition([], Y, [], []).
 partition([X|Xs], Y, [X|Ls], Bs) :- X =< Y, partition(Xs, Y, Ls, Bs).
 partition([X|Xs], Y, Ls, [X|Bs]) :- X > Y, partition(Xs, Y, Ls, Bs).
+
+% third of a list Complicated version...
+third([H|T], X) :- third([H|T], 1, X).
+third([H|_], 3, H).
+third([], _, null).
+third([_|T], N, X) :- N<3, N1 is N+1, third(T, N1, X).
+
+% easy third
+third2([_,_,T|_], T).
+
+%last of a list
+last([], []).
+last([H|[]], H).
+last([_|T], X) :- last(T, X).
+
+% Mean of a list
+mean([H|T], M) :- 
+    sum([H|T], Total),
+    mylength([H|T], Length),
+    M is Total/Length.
 
 
